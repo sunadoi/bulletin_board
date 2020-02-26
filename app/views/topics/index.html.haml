@@ -1,0 +1,11 @@
+.container
+  .topics-index-wrapper
+    .new-topic-btn
+      = link_to 'スレッドを新規作成する', new_topic_path, class: "btn btn-primary"
+    .contents
+      - @topics.each do |topic|
+        %ul.content
+          %li.content__title
+            = link_to topic.title, topic_path(topic)
+          %li.content__content
+            =topic.responses[0].content
