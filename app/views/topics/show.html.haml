@@ -11,3 +11,10 @@
             = "ID: #{response.user.id}"
           %li.content__text
             = response.content
+    .new-response
+      = form_with(model: @response, local: true, class: "new-response-form") do |form|
+        = form.label :content, "投稿内容"
+        = form.text_area :content
+        = form.hidden_field :topic_id, value: @topic.id
+        .new-response-form__submit
+          = form.submit "投稿する", class: "form-submit btn btn-primary"
