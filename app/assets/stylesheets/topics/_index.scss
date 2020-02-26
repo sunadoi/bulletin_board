@@ -1,0 +1,54 @@
+.header {
+  width: 100%;
+  position: fixed;
+  background-color: $light_blue;
+  opacity: 0.85;
+  color: white;
+  z-index: 1;
+  a {
+    color: white;
+  }
+  .header-nav {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .app-name {
+      line-height: 100px;
+      padding-left: 3%;
+      font-size: calc(10px + 2vw);
+    }
+    .header-contents {
+      display: flex;
+      line-height: 100px;
+      width: 80%;
+      justify-content: flex-end;
+      .name {
+        padding-top: 1px;
+        font-size: calc(7px + 1vw);
+      }
+      &__content {
+        margin-right: 3%;
+        a {
+          padding: 0;
+          color: white;
+          font-size: calc(7px + 1vw);
+        }
+      }
+    }
+  }
+}
+
+.new-topic-btn {
+  text-align: center;
+}
+
+.topics-index-wrapper {
+  padding-top: 150px;
+  .content {
+    border-bottom: 1px dotted;
+    &__title {
+      font-size: 30px;
+    }
+  }
+}

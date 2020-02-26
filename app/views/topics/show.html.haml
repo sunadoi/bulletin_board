@@ -1,0 +1,13 @@
+.container
+  .topics-show-wrapper
+    =@topic.title
+    .contents
+      - @topic.responses.each_with_index do |response, index|
+        %ul.content
+          %li.content__information
+            = index+1
+            = response.user.nickname
+            = response.created_at.strftime("%Y/%m/%d %H:%M:%S")
+            = "ID: #{response.user.id}"
+          %li.content__text
+            = response.content

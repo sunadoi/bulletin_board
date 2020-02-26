@@ -1,0 +1,15 @@
+.topics-show-wrapper {
+  padding-top: 150px;
+  .content {
+    background-color: $light-gray;
+    border-radius: 4px;
+    width: 100%;
+    &__information {
+      font-size: 20px;
+      padding: 10px;
+    }
+    &__text {
+      padding: 10px;
+    }
+  }
+}
