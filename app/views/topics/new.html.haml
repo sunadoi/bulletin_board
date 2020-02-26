@@ -9,7 +9,7 @@
           .new-topic-form__response
             .new-topic-form__response__input
               = response.label :content, "1レス目の投稿", class: "label"
-              = response.text_field :content, class: "form-input content"
+              = response.text_area :content, class: "form-input content"
               = response.hidden_field :user_id, value: current_user.id
         .new-topic-form__submit
           = form.submit "スレッドを作成する", class: "form-submit btn btn-primary"

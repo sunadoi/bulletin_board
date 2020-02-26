@@ -18,9 +18,9 @@
           %ul.header-contents
             %li.header-contents__content
               = link_to "検索", class: 'btn'
-            %li.header-contents__content.name
-              ユーザー様
             -if user_signed_in?
+              %li.header-contents__content.name
+                = current_user.nickname
               %li.header-contents__content
                 = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
             -else
