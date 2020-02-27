@@ -16,16 +16,18 @@
           %h1.app-name
             %a{ href: "/" } 5.5ch
           %ul.header-contents
-            %li.header-contents__content
-              = link_to "検索", class: 'btn'
+            %li.header-contents__content.search
+              = form_with(url: search_topics_path, local: true, method: :get, class: "search-form") do |form|
+                = form.text_field :keyword, placeholder: "スレッドおよびレスを検索", class: "search-input"
+                = form.submit "検索", class: "search-btn"
             -if user_signed_in?
               %li.header-contents__content.name
                 = current_user.nickname
-              %li.header-contents__content
+              %li.header-contents__content.log_out
                 = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
             -else
-              %li.header-contents__content
+              %li.header-contents__content.sign_up
                 = link_to "新規登録", new_user_registration_path, class: 'btn'
-              %li.header-contents__content
+              %li.header-contents__content.log_in
                 = link_to "ログイン", new_user_session_path, class: 'btn'
     = yield
