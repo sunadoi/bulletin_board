@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :topics
+  resources :topics do
+    collection do
+      get 'search'
+    end
+  end
   resources :responses
+  resources :categories
 end

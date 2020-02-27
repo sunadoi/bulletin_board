@@ -3,9 +3,26 @@
     .new-topic-btn
       = link_to 'スレッドを新規作成する', new_topic_path, class: "btn btn-primary"
     .contents
-      - @topics.each do |topic|
-        %ul.content
-          %li.content__title
-            = link_to topic.title, topic_path(topic)
-          %li.content__content
-            =topic.responses[0].content
+      .contents__blank
+        = "検索に該当するスレッドがありません" if @topics.blank?
+      - @topics.each do |content|
+        - if content.class == Topic
+          %ul.content
+            %li.content__title
+              = link_to content.title, topic_path(content)
+            %li.content__category
+              = "カテゴリー:"
+              - content.categories.each do |category|
+                = "【#{category.name}】"
+            %li.content__content
+              =content.responses[0].content
+        - else content.class == Response
+          %ul.content
+            %li.content__title
+              = link_to content.topic.title, topic_path(content.topic)
+            %li.content__category
+              = "カテゴリー:"
+              - content.topic.categories.each do |category|
+                = "【#{category.name}】"
+            %li.content__content
+              =content.topic.responses[0].content

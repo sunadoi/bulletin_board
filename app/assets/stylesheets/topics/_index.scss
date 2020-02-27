@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   position: fixed;
-  background-color: $light_blue;
+  background-color: $brown-color;
   opacity: 0.85;
   color: white;
   z-index: 1;
@@ -23,6 +23,16 @@
       line-height: 100px;
       width: 80%;
       justify-content: flex-end;
+      align-items: center;
+      .search {
+        line-height: 40px;
+        .search-input {
+          width: 200px;
+        }
+        .search-btn {
+          width: 70px;
+        }
+      }
       .name {
         padding-top: 1px;
         font-size: calc(7px + 1vw);
@@ -45,6 +55,11 @@
 
 .topics-index-wrapper {
   padding-top: 150px;
+  .contents__blank {
+    margin-top: 100px;
+    font-size: 20px;
+    text-align: center;
+  }
   .content {
     border-bottom: 1px dotted;
     &__title {
