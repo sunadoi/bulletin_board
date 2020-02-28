@@ -1,4 +1,5 @@
 class ResponsesController < ApplicationController
+  before_action :ensure_login, only: [:create]
 
   def create
     @response = Response.create(response_params)
