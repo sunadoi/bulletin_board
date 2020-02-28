@@ -3,7 +3,7 @@
     .new-content
       %h1 新しく作成するスレッドの情報を記入してください
       = form_with(model: @topic, local: true, class: "new-topic-form") do |form|
-        = form.label :title, "スレッドタイトル", class: "label"
+        = form.label :title, "スレッドタイトル(*必須)", class: "label"
         <br>
         = form.text_field :title, clas: "form-input title"
         = form.fields_for :categories do |category|
@@ -11,13 +11,13 @@
             .new-topic-form__category__input
               = category.label :name, "カテゴリー", class: "label"
               <br>
-              = category.text_field :name, name: "topic[categories_attributes][0][name]", class: "form-input name"
-              = category.text_field :name, name: "topic[categories_attributes][1][name]",class: "form-input name"
-              = category.text_field :name, name: "topic[categories_attributes][2][name]",class: "form-input name"
+              - Category.all.each_with_index do |category, index|
+                = check_box_tag 'topic[categories][]', category.id, false
+                = category.name
         = form.fields_for :responses do |response|
           .new-topic-form__response
             .new-topic-form__response__input
-              = response.label :content, "1レス目の投稿", class: "label"
+              = response.label :content, "1レス目の投稿(*必須)", class: "label"
               <br>
               = response.text_area :content, class: "form-input content"
               = response.hidden_field :user_id, value: current_user.id
