@@ -1,5 +1,5 @@
 class Topic < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :responses
   accepts_nested_attributes_for :responses, allow_destroy: true
   has_many :topics_categories
