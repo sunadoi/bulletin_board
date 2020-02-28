@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def ensure_login
     unless user_signed_in?
-      redirect_to root_path
+      redirect_to new_user_session_path, flash: {error: '投稿するためにはログインが必要です'}
     end
   end
 end
