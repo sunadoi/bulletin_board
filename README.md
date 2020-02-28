@@ -20,6 +20,7 @@
 ```
 $ git clone https://github.com/sunadoi/bulletin_board.git
 $ cd bulletin_board
+$ bundle install
 $ rails db:create
 $ rails db:migrate
 $ rails db:seed
