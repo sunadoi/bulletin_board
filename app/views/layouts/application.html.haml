@@ -30,4 +30,6 @@
                 = link_to "新規登録", new_user_registration_path, class: 'btn'
               %li.header-contents__content.log_in
                 = link_to "ログイン", new_user_session_path, class: 'btn'
+      .notice-bar
+        = render 'layouts/notifications'
     = yield

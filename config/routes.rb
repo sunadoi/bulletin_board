@@ -7,11 +7,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :topics do
+  resources :topics, only: [:index, :new, :create, :show] do
     collection do
       get 'search'
     end
   end
-  resources :responses
-  resources :categories
+  resources :responses, only: [:create]
 end

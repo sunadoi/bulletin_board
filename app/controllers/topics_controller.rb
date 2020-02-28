@@ -1,4 +1,7 @@
 class TopicsController < ApplicationController
+  before_action :ensure_login, only: [:new, :create]
+
+
   def index
     @topics = Topic.all.order(id: "desc")
   end
@@ -12,8 +15,13 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     if @topic.save
+      category_ids = params[:topic][:categories].map{|i| i.to_i}
+      category_ids.each do |id|
+        @topics_categories = TopicsCategory.create(topic_id: @topic.id, category_id: id)
+      end
       redirect_to action: :index
     else
+      flash.now[:alert] = '必須事項を入力してください。'
       render action: :new
     end
   end
@@ -31,6 +39,6 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:title, responses_attributes: [:content, :user_id], categories_attributes: [:name]).merge(user_id: current_user.id)
+    params.require(:topic).permit(:title, responses_attributes: [:content, :user_id]).merge(user_id: current_user.id)
   end
 end
