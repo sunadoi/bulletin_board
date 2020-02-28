@@ -3,8 +3,7 @@
     .new-topic-btn
       = link_to 'スレッドを新規作成する', new_topic_path, class: "btn btn-primary"
     .contents
-      .contents__blank
-        = "検索に該当するスレッドがありません" if @topics.blank?
+      %p.contents__blank="検索に該当するスレッドがありません" if @topics.blank?
       - @topics.each do |content|
         - if content.class == Topic
           %ul.content
