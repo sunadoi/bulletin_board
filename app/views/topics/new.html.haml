@@ -5,7 +5,7 @@
       = form_with(model: @topic, local: true, class: "new-topic-form") do |form|
         = form.label :title, "スレッドタイトル(*必須)", class: "label"
         <br>
-        = form.text_field :title, clas: "form-input title"
+        = form.text_field :title, class: "form-input title"
         = form.fields_for :categories do |category|
           .new-topic-form__category
             .new-topic-form__category__input
@@ -14,12 +14,13 @@
               - Category.all.each_with_index do |category, index|
                 = check_box_tag 'topic[categories][]', category.id, false
                 = category.name
+                <br>
         = form.fields_for :responses do |response|
           .new-topic-form__response
             .new-topic-form__response__input
               = response.label :content, "1レス目の投稿(*必須)", class: "label"
               <br>
-              = response.text_area :content, class: "form-input content"
+              = response.text_area :content, placeholder: "コメント内容", class: "form-input content"
               = response.hidden_field :user_id, value: current_user.id
         .new-topic-form__submit
           = form.submit "スレッドを作成する", class: "form-submit btn btn-primary"

@@ -2,8 +2,12 @@ class ResponsesController < ApplicationController
   before_action :ensure_login, only: [:create]
 
   def create
-    @response = Response.create(response_params)
-    redirect_to topic_path(@response.topic.id)
+    @response = Response.new(response_params)
+    if @response.save
+      redirect_to topic_path(@response.topic.id)
+    else
+      redirect_to topic_path(@response.topic.id), flash: {error: '投稿内容を入力してください'}
+    end
   end
 
   private

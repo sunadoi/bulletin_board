@@ -1,9 +1,27 @@
-.new-content {
-  h1 {
-    text-align: center;
-  }
-}
-
 .topics-new-contents {
-  padding-top: 150px;
+  padding-top: 50px;
+  .new-content {
+    h1 {
+      text-align: center;
+    }
+    .new-topic-form {
+      .label {
+        margin-top: 32px;
+        font-weight: bold;
+      }
+      .form-input {
+        width: 60%;
+      }
+      .title {
+        height: 40px;
+      }
+      .content {
+        height: 100px;
+      }
+      &__submit {
+        text-align: center;
+        margin: 32px 0;
+      }
+    }
+  }
 }

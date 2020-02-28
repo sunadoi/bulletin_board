@@ -1,7 +1,36 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.create!(nickname: "名無しさん", email: 'user@gmail.com', password: 'userpass')
+User.create!(nickname: "名無しさん", email: 'test@gmail.com', password: 'testpass')
+User.create!(nickname: "hogeさん", email: 'hoge@gmail.com', password: 'hogepass')
+User.create!(nickname: "fugaさん", email: 'fuga@gmail.com', password: 'fugapass')
+
+Category.create!(name: "プログラミング未経験")
+Category.create!(name: "プログラミング言語")
+Category.create!(name: "プログラミングスクール")
+Category.create!(name: "競プロ")
+Category.create!(name: "フロントエンド")
+Category.create!(name: "サーバーサイド")
+Category.create!(name: "クラウド")
+
+Topic.create!(title: "未経験からエンジニアになるためにオススメの言語", user_id: 1)
+Topic.create!(title: "プログラミング初心者はスクールに行くべきか", user_id: 1)
+Topic.create!(title: "【初心者】競プロでオススメのサイト", user_id: 1)
+
+TopicsCategory.create!(topic_id: 1, category_id: 1)
+TopicsCategory.create!(topic_id: 1, category_id: 2)
+TopicsCategory.create!(topic_id: 2, category_id: 1)
+TopicsCategory.create!(topic_id: 2, category_id: 3)
+TopicsCategory.create!(topic_id: 3, category_id: 4)
+
+Response.create!(content: "みなさんはどの言語がオススメですか？", user_id: 1, topic_id: 1)
+Response.create!(content: "Rubyです", user_id: 2, topic_id: 1)
+Response.create!(content: "PHPでしょ", user_id: 3, topic_id: 1)
+Response.create!(content: "まずはHTML&CSS", user_id: 4, topic_id: 1)
+
+Response.create!(content: "スクール行った人どれくらいいますか？", user_id: 1, topic_id: 2)
+Response.create!(content: "短期間で集中的に学べるのでスクールオススメです", user_id: 2, topic_id: 2)
+Response.create!(content: "自走できるなら独学でも問題ないと思う", user_id: 3, topic_id: 2)
+Response.create!(content: "やることがハッキリしてるのでスクールオススメです", user_id: 4, topic_id: 2)
+
+Response.create!(content: "競プロ始めようと思うんですがどこかいいサイト知ってますか？", user_id: 1, topic_id: 3)
+Response.create!(content: "AtCorder", user_id: 2, topic_id: 3)
+Response.create!(content: "Paiza", user_id: 4, topic_id: 3)

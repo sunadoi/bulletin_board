@@ -58,7 +58,7 @@
 }
 
 .topics-index-wrapper {
-  padding-top: 150px;
+  margin: 50px 0;
   .contents__blank {
     margin-top: 100px;
     font-size: 20px;
@@ -66,6 +66,10 @@
   }
   .content {
     border-bottom: 1px dotted;
+    padding: 16px 0;
+    li {
+      padding: 8px 0;
+    }
     &__title {
       font-size: 30px;
     }

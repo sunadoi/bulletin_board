@@ -1,6 +1,6 @@
 .container
   .topics-show-wrapper
-    =@topic.title
+    %h1=@topic.title
     .contents
       - @topic.responses.each_with_index do |response, index|
         %ul.content
@@ -13,8 +13,9 @@
             = response.content
     .new-response
       = form_with(model: @response, local: true, class: "new-response-form") do |form|
-        = form.label :content, "投稿内容"
-        = form.text_area :content
+        = form.label :content, "レスを投稿する", class: "new-response-form__label"
+        <br>
+        = form.text_area :content, class: "new-response-form__text"
         = form.hidden_field :topic_id, value: @topic.id
         .new-response-form__submit
-          = form.submit "投稿する", class: "form-submit btn btn-primary"
+          = form.submit "書き込む", class: "form-submit btn btn-primary"
