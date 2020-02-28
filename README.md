@@ -4,34 +4,24 @@
 </p>
 
 ## :star: アピールポイント
+- 制作期間丸2日(2/26-2/28)
 - ログインしていない状態で投稿しようとすると、フラッシュメッセージ付きでログイン画面に遷移するようにした
-- カテゴリーは一覧から
-
-</br>
-
-## :cloud: Infrastructure Configuration Diagram
-<p align="center">
-<img width="518" alt="スクリーンショット 2020-01-09 19.39.05.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/543133/9fdc0354-dc5c-4c13-3ecb-cd43976926e1.png">
-</p>
-
-</br>
-
-## :globe_with_meridians: App URL
-
-### **https://www.smacard66.com/cards/top**  
+- スレッドのタイトルなどを空の状態で投稿しようとするとフラッシュメッセージを表示するようにした
+- カテゴリーは一覧からチェックボックスで選択できるようにした
+- スレッド一覧画面ではタイトルとカテゴリーと1レス目を表示
 
 </br>
 
 ## :speech_balloon: Installation
 
 ```
-$ git clone https://github.com/sunadoi/card_management.git
-$ cd card_management
-$ docker-compose build
-$ docker-compose run --rm app rails db:create
-$ docker-compose run --rm app rails db:migrate
-$ docker-compose -f development.yml up -d
-👉http://localhost/
+$ git clone https://github.com/sunadoi/bulletin_board.git
+$ cd bulletin_board
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+$ rails s
+👉http://localhost:3000/
 ```
 
 </br>
@@ -43,7 +33,7 @@ $ docker-compose -f development.yml up -d
 </br>
 
 ## :smile: Author
-- <a href="https://github.com/sunadoi/card_management">Github</a>
+- <a href="https://github.com/sunadoi">Github</a>
 - <a href="https://twitter.com/suna_tech">Twitter</a>
 - <a href="https://qiita.com/y-suna">Qiita</a>
 - <a href="https://note.com/sunadoi">note</a>
